@@ -40,13 +40,12 @@ public class GPSService extends Service {
     private Sensor sensor;
     private SensorEventListener sensorEventListener;
     private long tt = 0;
-     private Double lat;
-    private Double longi;
-
-    private Double alt;
+     private double lat;
+    private double longi;
+    private double alt;
     //private Float cond;
-    private Float press;
-    private Float vel;
+    private float press;
+    private float vel;
     private String usr;
     private String prov;
     private String fecha;
@@ -66,7 +65,8 @@ public class GPSService extends Service {
     private float sensor_x;
     private float sensor_y;
     private float sensor_z;
-
+    private int sattelite_num;
+//agrego comentario para commit
 
     public GPSService() {
     }
@@ -106,7 +106,9 @@ public class GPSService extends Service {
                     tt++;
                     if (tt > 333) {
                         System.out.println("device NO esta en movimiento gps inactivo");
-                        stop1();
+                        sensor_x=0;
+                        sensor_y=0;
+                        sensor_z=0;
                         tt = 0;
 
                     }
@@ -152,9 +154,9 @@ public class GPSService extends Service {
             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(i);
         }
-        mlocManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 30*1000, 0, (LocationListener) Local);
-        mlocManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 30*1000, 0, (LocationListener) Local);
-        mlocManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 30*1000, 0, (LocationListener) Local);
+        mlocManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 30*1000, 1, (LocationListener) Local);
+        mlocManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 30*1000, 1, (LocationListener) Local);
+
         System.out.println("inicio gps");
 
     }
@@ -168,45 +170,12 @@ public class GPSService extends Service {
         }
     }
 
-    public void setLocation(Location loc) {
-        //Obtener la direccion de la calle a partir de la latitud y la longitud
-        if (loc.getLatitude() != 0.0 && loc.getLongitude() != 0.0) {
-            try {
-                Geocoder geocoder = new Geocoder(this, Locale.getDefault());
-                List<Address> list = geocoder.getFromLocation(
-                        loc.getLatitude(), loc.getLongitude(), 1);
-                if (!list.isEmpty()) {
-                    Address DirCalle = list.get(0);
-                    String coordenadas0 = getString(R.string.coordenadas1);
 
-
-                    Intent i = new Intent("location_update1");
-                    i.putExtra("mensaje2", coordenadas0
-                            + "Mi direccion es: \n"
-                            + DirCalle.getAddressLine(0)
-                    );
-                    sendBroadcast(i);
-                    //  mensaje2.setText();
-                }
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-*/
     /* Aqui empieza la Clase Localizacion */
     public class Localizacion implements LocationListener {
-  //      GPSActivity mainGPSActivity;
 
-     /*   public GPSActivity getMainGPSActivity() {
-            return mainGPSActivity;
-        }
 
-        public void setMainGPSActivity(GPSActivity mainGPSActivity) {
-            this.mainGPSActivity = mainGPSActivity;
-        }
-*/
+
         @Override
         public void onLocationChanged(Location loc) {
             // Este metodo se ejecuta cada vez que el GPS recibe nuevas coordenadas
@@ -237,7 +206,9 @@ public class GPSService extends Service {
                     + "\n" + date1 + " : " + m.getFechaActual()
                     + "\n x :" + sensor_x
                     + "\n y :" + sensor_y
-                    + "\n z :" + sensor_z);
+                    + "\n z :" + sensor_z
+                    + "\n saltelite :" + loc.getExtras().getInt("satellites")
+            );
             sendBroadcast(i);
             Boolean area1 = m.revisarArea(loc.getLatitude(), loc.getLongitude());
 
@@ -251,6 +222,7 @@ public class GPSService extends Service {
             vel = loc.getSpeed();
             prov = loc.getProvider();
             fecha = m.getFechaActual();
+            sattelite_num=loc.getExtras().getInt("satellites");
 
             //si se encuentra dentro del area capturamos los datos
             if (area1) {
@@ -263,25 +235,22 @@ public class GPSService extends Service {
 
                     HashMap<String, String> queryValues = new HashMap<String, String>();
 
-                    queryValues.put("usu_id", usr.toString());
-                    queryValues.put("dat_latitud", lat.toString());
-                    queryValues.put("dat_longitud", longi.toString());
-                    queryValues.put("dat_precision", press.toString());
-                    queryValues.put("dat_altitud", alt.toString());
-                    queryValues.put("dat_velocidad", vel.toString());
+                    queryValues.put("usu_id", usr);
+                    queryValues.put("dat_latitud", String.valueOf(lat));
+                    queryValues.put("dat_longitud", String.valueOf(longi));
+                    queryValues.put("dat_precision", String.valueOf(press));
+                    queryValues.put("dat_altitud", String.valueOf(alt));
+                    queryValues.put("dat_velocidad", String.valueOf(vel));
                     queryValues.put("dat_proveedor", prov);
                     queryValues.put("dat_fechahora_lectura", fecha);
+                    queryValues.put("dat_acelerometro_x", String.valueOf(sensor_x));
+                    queryValues.put("dat_acelerometro_x", String.valueOf(sensor_y));
+                    queryValues.put("dat_acelerometro_x", String.valueOf(sensor_z));
+                    queryValues.put("dat_numero_sat",String.valueOf(sattelite_num ));
+                    queryValues.put("dat_amplitud_sat", "0");
 
                     controller.insertDatos(queryValues);
 
-/*
-                        //lista los datos para sincronizar
-                        ArrayList<HashMap<String, String>> userList = controller.getAllUsers();
-                        if (userList.size() != 0) {
-
-                        }
-                        //tt = 0;
-*/
                 }
 
                 //comprueba la hora para sincronizacón con la base de datos
@@ -294,16 +263,12 @@ public class GPSService extends Service {
 
                     }
                     m.syncSQLiteMySQLDB(getApplicationContext());
-
-
                 }
-
-
             }
             System.out.println(" Latitud = " + loc.getLatitude()
                     + "\n Longitud = " + loc.getLongitude());
             System.out.println("tiempo ejecucion"+tt++);
-            //this.mainGPSActivity.setLocation(loc);
+
             // permite guardar un respaldo de la base de datos en la carpeta my documents
             //        m.backupdDatabase(getApplicationContext());
 

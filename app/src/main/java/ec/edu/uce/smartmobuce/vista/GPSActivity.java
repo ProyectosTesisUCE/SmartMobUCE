@@ -29,26 +29,6 @@ public class GPSActivity extends AppCompatActivity {
     private final Metodos m = new Metodos();
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gps);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        textView = findViewById(R.id.textView);
-
-
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION,}, 1000);
-        } else {
-            Intent i = new Intent(getApplicationContext(), GPSService.class);
-            startService(i);
-            System.out.println("start service");
-            //startService(new Intent(getApplicationContext(), GPSService.class));
-
-        }
-
-    }
-
-    @Override
     protected void onResume() {
         super.onResume();
         if (broadcastReceiver == null) {
@@ -73,9 +53,29 @@ public class GPSActivity extends AppCompatActivity {
         if (broadcastReceiver != null) {
             unregisterReceiver(broadcastReceiver);
         }
+    }
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_gps);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        textView = (TextView) findViewById(R.id.textView);
+
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION,}, 1000);
+        } else {
+            Intent i = new Intent(getApplicationContext(), GPSService.class);
+            startService(i);
+            System.out.println("start service");
+            //startService(new Intent(getApplicationContext(), GPSService.class));
+
+        }
 
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

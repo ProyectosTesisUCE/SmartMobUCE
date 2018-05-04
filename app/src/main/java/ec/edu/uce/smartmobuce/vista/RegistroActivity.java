@@ -286,27 +286,27 @@ public class RegistroActivity extends AppCompatActivity {
 
         }
 
-        if (_genero.getSelectedItem().toString().trim().equals("GENDER")||_genero.getSelectedItem().toString().trim().equals("GÉNERO")) {
+        if (_genero.getSelectedItem().toString().trim().equals("Gender")||_genero.getSelectedItem().toString().trim().equals("Género")) {
             Toast.makeText(this, "Error seleccione Genero", Toast.LENGTH_SHORT).show();
             valid = false;
         }
-        if (_facultad.getSelectedItem().toString().trim().equals("FACULTAD") || _facultad.getSelectedItem().toString().trim().equals("FACULTAD")) {
+        if (_facultad.getSelectedItem().toString().trim().equals("Faculty") || _facultad.getSelectedItem().toString().trim().equals("Facultad")) {
             Toast.makeText(this, "Error seleccione Facultad", Toast.LENGTH_SHORT).show();
             valid = false;
         }
 
-        if (_tipo.getSelectedItem().toString().trim().equals("TYPE")|| _tipo.getSelectedItem().toString().trim().equals("TIPO")) {
+        if (_tipo.getSelectedItem().toString().trim().equals("Type")|| _tipo.getSelectedItem().toString().trim().equals("Tipo")) {
             Toast.makeText(this, "Error seleccione Tipo", Toast.LENGTH_SHORT).show();
             valid = false;
         }
 
-        if (_sector.getSelectedItem().toString().trim().equals("SECTOR")) {
+        if (_sector.getSelectedItem().toString().trim().equals("Sector")) {
             Toast.makeText(this, "Error seleccione sector", Toast.LENGTH_SHORT).show();
             valid = false;
         }
 
 
-        if (_actividad.getSelectedItem().toString().trim().equals("ACTIVITY")||_actividad.getSelectedItem().toString().trim().equals("ACTIVIDAD")) {
+        if (_actividad.getSelectedItem().toString().trim().equals("Activity")||_actividad.getSelectedItem().toString().trim().equals("Actividad")) {
             Toast.makeText(this, "Error seleccione Actividad", Toast.LENGTH_SHORT).show();
             valid = false;
         }

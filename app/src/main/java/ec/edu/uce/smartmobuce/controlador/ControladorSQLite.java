@@ -29,7 +29,12 @@ public class ControladorSQLite extends SQLiteOpenHelper {
             "`dat_velocidad` REAL," +
             "`dat_proveedor` TEXT," +
             "`dat_fechahora_lectura` TEXT," +
-            "`udpateStatus` TEXT"+
+            "`udpateStatus` TEXT,"+
+            "`dat_acelerometro_x` REAL," +
+            "`dat_acelerometro_y` REAL," +
+            "`dat_acelerometro_z` REAL," +
+            "`dat_numero_sat` INTEGER,"+
+            "`dat_amplitud_sat` REAL" +
             ");";
 
     //contexto referencia al activity, name nombre de base de datos SQLiteDatabase m=no utilizamos ponemos null
@@ -71,6 +76,12 @@ public class ControladorSQLite extends SQLiteOpenHelper {
         values.put("dat_proveedor", queryValues.get("dat_proveedor"));
         values.put("dat_fechahora_lectura", queryValues.get("dat_fechahora_lectura"));
         values.put("udpateStatus", "no");
+        values.put("dat_acelerometro_x", queryValues.get("dat_acelerometro_x"));
+        values.put("dat_acelerometro_y", queryValues.get("dat_acelerometro_x"));
+        values.put("dat_acelerometro_z", queryValues.get( "dat_acelerometro_x"));
+        values.put("dat_numero_sat", queryValues.get("dat_numero_sat"));
+        values.put("dat_amplitud_sat", queryValues.get("dat_amplitud_sat"));
+
         database.insert("DatosGPS", null, values);
         database.close();
     }
@@ -98,6 +109,11 @@ public class ControladorSQLite extends SQLiteOpenHelper {
                 map.put("dat_proveedor",cursor.getString(7));
                 map.put("dat_fechahora_lectura",cursor.getString(8));
                 map.put("udpateStatus",cursor.getString(9));
+                map.put("dat_acelerometro_x", cursor.getString(10));
+                map.put("dat_acelerometro_y", cursor.getString(11));
+                map.put("dat_acelerometro_z", cursor.getString(12));
+                map.put("dat_numero_sat", cursor.getString(13));
+                map.put("dat_amplitud_sat", cursor.getString(14));
                 wordList.add(map);
             } while (cursor.moveToNext());
         }
@@ -129,6 +145,11 @@ public class ControladorSQLite extends SQLiteOpenHelper {
                 map.put("dat_proveedor",cursor.getString(7));
                 map.put("dat_fechahora_lectura",cursor.getString(8));
                 map.put("udpateStatus",cursor.getString(9));
+                map.put("dat_acelerometro_x", cursor.getString(10));
+                map.put("dat_acelerometro_y", cursor.getString(11));
+                map.put("dat_acelerometro_z", cursor.getString(12));
+                map.put("dat_numero_sat", cursor.getString(13));
+                map.put("dat_amplitud_sat", cursor.getString(14));
                 wordList.add(map);
             } while (cursor.moveToNext());
         }

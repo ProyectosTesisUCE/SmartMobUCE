@@ -23,66 +23,33 @@
     <string name="realready">Already a member? Login</string>
 
     <!-- Strings facultad -->
-    <string name="faculty">FACULTY</string>
-    <string name="fac2">BUSINESS ADMINISTRATION</string>
-    <string name="fac3">PUBLIC ADMINISTRATION</string>
-    <string name="fac4">ARCHITECTURE</string>
-    <string name="fac5">PLASTIC ARTS</string>
-    <string name="fac6">PREHOSPITAL AND EMERGENCY ATTENTION</string>
-    <string name="fac7">BIOLOGY</string>
-    <string name="fac8">BIOCHEMISTRY AND PHARMACY</string>
-    <string name="fac9">SOCIAL COMUNICATION</string>
-    <string name="fac10">ACCOUNTING AND AUDITING</string>
-    <string name="fac11">LAW</string>
-    <string name="fac12">ECONOMY</string>
-    <string name="fac13">INITIAL EDUCATION</string>
-    <string name="fac14">NURSING</string>
-    <string name="fac15">FINANCE</string>
-    <string name="fac16">AGRONOMIC ENGINEERING</string>
-    <string name="fac17">ENVIRONMENTAL ENGINEERING</string>
-    <string name="fac18">CIVIL ENGINEERING</string>
-    <string name="fac19">MINE ENGINEERING</string>
-    <string name="fac20">PETROLEUM ENGINEERING</string>
-    <string name="fac21">ENGINEERING IN GRAPHIC COMPUTATION</string>
-    <string name="fac22">ENGINEERING IN INDUSTRIAL DESIGN</string>
-    <string name="fac23">ENGINEERING IN GEOLOGY</string>
-    <string name="fac24">STATISTICAL ENGINEERING</string>
-    <string name="fac25">INFORMATICS ENGINEERING</string>
-    <string name="fac26">MATHEMATICAL ENGINEERING</string>
-    <string name="fac27">CHEMICAL ENGINEERING</string>
-    <string name="fac28">CLINICAL AND HISTOTECHNOLOGICAL LABORATORY</string>
-    <string name="fac29">MEDICINE</string>
-    <string name="fac30">VETERINARY MEDICINE</string>
-    <string name="fac31">OBSTETRICS</string>
-    <string name="fac32">ODONTOLOGY</string>
-    <string name="fac33">PEDAGOGY OF PHYSICAL ACTIVITY AND SPORTS</string>
-    <string name="fac34">PEDAGOGY OF HISTORY AND SOCIAL SCIENCES</string>
-    <string name="fac35">PEDAGOGY OF LANGUAGE AND LITERATURE</string>
-    <string name="fac36">PEDAGOGY OF EXPERIMENTAL SCIENCES Bachelor in Computer Science Pedagogy</string>
-    <string name="fac37">PEDAGOGY OF EXPERIMENTAL SCIENCES Degree in Pedagogy of Chemistry and Biology</string>
-    <string name="fac38">PEDAGOGY OF EXPERIMENTAL SCIENCES Degree in Pedagogy of Mathematics and Physics</string>
-    <string name="fac39">PEDAGOGY OF THE NATIONAL AND FOREIGN LANGUAGES</string>
-    <string name="fac40">POLITICS</string>
-    <string name="fac41">CLINICAL PSYCHOLOGY</string>
-    <string name="fac42">INDUSTRIAL PSYCHOLOGY</string>
-    <string name="fac43">CHILD PSYCHOLOGY AND PSYCHO REHABILITATION</string>
-    <string name="fac44">PSYCHOPEDAGOGY</string>
-    <string name="fac45">CHEMISTRY</string>
-    <string name="fac46">RADIOLOGY</string>
-    <string name="fac47">SOCIOLOGY</string>
-    <string name="fac48">THEATER</string>
-    <string name="fac49">SPEECH THERAPY</string>
-    <string name="fac50">PHYSICAL THERAPY</string>
-    <string name="fac51">OCCUPATIONAL THERAPY</string>
-    <string name="fac52">SOCIAL WORK</string>
-    <string name="fac53">ECOLOGICAL TOURISM</string>
-    <string name="fac54">CULTURAL HISTORICAL TOURISM</string>
+    <string name="faculty">Faculty</string>
+    <string name="fac2">Administrative Sciences</string>
+    <string name="fac3">Agricultural Science</string>
+    <string name="fac4">Architecture and Urbanism</string>
+    <string name="fac5">Arts</string>
+    <string name="fac6">Biological Sciences</string>
+    <string name="fac7">Chemical Engineering</string>
+    <string name="fac8">Chemical Sciences</string>
+    <string name="fac9">Disability Sciences</string>
+    <string name="fac10">Economic Sciences</string>
+    <string name="fac11">Engineering in Geology, Mining, Petroleum and Environmental</string>
+    <string name="fac12">Engineering, Physical Sciences and Mathematics</string>
+    <string name="fac13">Jurisprudence, Political and Social Sciences</string>
+    <string name="fac14">Medical Sciences</string>
+    <string name="fac15">Odontology</string>
+    <string name="fac16">Philosophy, Letters and Education Sciences</string>
+    <string name="fac17">Physical Culture</string>
+    <string name="fac18">Psychological Sciences</string>
+    <string name="fac19">Social and Human Sciences</string>
+    <string name="fac20">Social Comunication</string>
+    <string name="fac21">Veterinary Medicine</string>
 
     <!-- Strings género -->
-    <string name="gender">GENDER</string>
-    <string name="g01">MALE</string>
-    <string name="g02">FEMALE</string>
-    <string name="g03">OTHER</string>
+    <string name="gender">Gender</string>
+    <string name="g01">Male</string>
+    <string name="g02">Female</string>
+
     <!-- Strings tipo -->
     <string name="type">TYPE</string>
     <string name="t01">Student</string>
@@ -91,21 +58,18 @@
 
     <!-- Strings sector -->
     <string name="sector" translatable="false">SECTOR</string>
-    <string name="s01">NORTH</string>
-    <string name="s02">CENTER</string>
-    <string name="s03">SOUTH</string>
+    <string name="s01">North</string>
+    <string name="s02">Center</string>
+    <string name="s03">South</string>
 
     <!-- Strings actividad -->
-    <string name="activity">ACTIVITY</string>
-    <string name="a01">STUDIES</string>
-    <string name="a02">SPORTS</string>
-    <string name="a03">WORK</string>
-    <string name="a04">OTHER</string>
+    <string name="activity">Activity</string>
+    <string name="a01">Sstudies</string>
+    <string name="a02">Sport</string>
+    <string name="a03">Work</string>
+    <string name="a04">Other</string>
 
-    <!-- Strings género -->
-
-
-
+    <!-- Strings idioma -->
     <string name="str_en">English</string>
     <string name="str_es">Spanish</string>
     <string-array name="languages">
@@ -139,7 +103,6 @@
         <item>@string/gender</item>
         <item>@string/g01</item>
         <item>@string/g02</item>
-        <item>@string/g03</item>
     </string-array>
 
     <string-array name="facultad">
@@ -164,40 +127,7 @@
         <item>@string/fac19</item>
         <item>@string/fac20</item>
         <item>@string/fac21</item>
-        <item>@string/fac22</item>
-        <item>@string/fac23</item>
-        <item>@string/fac24</item>
-        <item>@string/fac25</item>
-        <item>@string/fac26</item>
-        <item>@string/fac27</item>
-        <item>@string/fac28</item>
-        <item>@string/fac29</item>
-        <item>@string/fac30</item>
-        <item>@string/fac31</item>
-        <item>@string/fac32</item>
-        <item>@string/fac33</item>
-        <item>@string/fac34</item>
-        <item>@string/fac35</item>
-        <item>@string/fac36</item>
-        <item>@string/fac37</item>
-        <item>@string/fac38</item>
-        <item>@string/fac39</item>
-        <item>@string/fac40</item>
-        <item>@string/fac41</item>
-        <item>@string/fac42</item>
-        <item>@string/fac43</item>
-        <item>@string/fac44</item>
-        <item>@string/fac45</item>
-        <item>@string/fac46</item>
-        <item>@string/fac47</item>
-        <item>@string/fac48</item>
-        <item>@string/fac49</item>
-        <item>@string/fac50</item>
-        <item>@string/fac51</item>
-        <item>@string/fac52</item>
-        <item>@string/fac53</item>
-        <item>@string/fac54</item>
-    </string-array>
+        </string-array>
 
     <string-array name="tipo">
         <item>@string/type</item>
